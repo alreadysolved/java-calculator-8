@@ -15,5 +15,16 @@ public class Application {
             sep = sep + "|" + customSep;
             line = Console.readLine();
         }
+
+        String[] opd = line.split(sep);
+        for (String op : opd) {
+            if (op.equals("")) continue;
+            if (!op.matches("\\d+")) {
+                throw new IllegalArgumentException("피연산자 입력이 잘못되었습니다.");
+            }
+            result += Long.parseLong(op);
+        }
+
+        System.out.println("결과 : " + result);
     }
 }
